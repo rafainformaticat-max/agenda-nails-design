@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda Nails</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="#">
+        <span class="brand-icon">✿</span>
+        <span>nails<span class="brand-light"> studio</span></span>
+      </a>
+      <p class="nav-label">MENU</p>
+      <nav>
+        <button class="nav-link active" data-page="agenda">▦ <span>Agenda</span></button>
+        <button class="nav-link" data-page="clientes">♡ <span>Clientes</span></button>
+        <button class="nav-link" data-page="cores">✦ <span>Cores</span></button>
+      </nav>
+      <div class="sidebar-note">
+        <span>✧</span>
+        <p>Um momento especial começa com um cuidado especial.</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SEU ESPAÇO DE BELEZA</p>
+          <h1 id="page-title">Agenda</h1>
+        </div>
+        <span class="today" id="today"></span>
+      </header>
+
+      <section class="page active" id="page-agenda">
+        <div class="welcome-card">
+          <div>
+            <p class="eyebrow">BEM-VINDA AO SEU PAINEL</p>
+            <h2>Organize seu dia com leveza.</h2>
+            <p>Consulte os horários e mantenha seus atendimentos em ordem.</p>
+          </div>
+          <span class="welcome-flower">✿</span>
+        </div>
+
+        <div class="section-heading">
+          <div><p class="eyebrow">VISÃO GERAL</p><h2>Agendamentos</h2></div>
+          <button class="button button-primary" id="new-appointment-button">+ Novo agendamento</button>
+        </div>
+
+        <div class="stats">
+          <article class="stat-card"><span>Atendimentos</span><strong id="appointment-count">0</strong><small>agendados</small></article>
+          <article class="stat-card"><span>Clientes</span><strong id="client-count">0</strong><small>cadastradas</small></article>
+          <article class="stat-card"><span>Próximo horário</span><strong class="next-time" id="next-time">—</strong><small>na agenda</small></article>
+        </div>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">SUA ROTINA</p><h2>Próximos horários</h2></div>
+            <input id="appointment-date-filter" type="date" aria-label="Filtrar por data">
+          </div>
+          <div id="appointments-list" class="appointment-list"></div>
+        </section>
+
+        <section class="panel form-panel" id="appointment-form-panel">
+          <div class="panel-heading"><div><p class="eyebrow">RESERVA</p><h2>Novo agendamento</h2></div></div>
+          <form id="appointment-form" class="form-grid">
+            <label>Cliente
+              <select id="appointment-client" required><option value="">Selecione uma cliente</option></select>
+            </label>
+            <label>Serviço
+              <select id="appointment-service" required>
+                <option value="">Selecione um serviço</option>
+                <option>Manicure</option><option>Pedicure</option><option>Esmaltação em gel</option>
+                <option>Alongamento</option><option>Nail art</option>
+              </select>
+            </label>
+            <label>Data<input id="appointment-date" type="date" required></label>
+            <label>Horário<input id="appointment-time" type="time" required></label>
+            <div class="form-actions"><button class="button button-primary" type="submit">Salvar agendamento</button><span id="appointment-message" class="message" role="status"></span></div>
+          </form>
+        </section>
+      </section>
+
+      <section class="page" id="page-clientes">
+        <div class="section-heading"><div><p class="eyebrow">RELACIONAMENTO</p><h2>Suas clientes</h2></div></div>
+        <section class="panel">
+          <h2 class="panel-title">Cadastrar cliente</h2>
+          <form id="client-form" class="form-grid">
+            <label>Nome<input id="client-name" type="text" placeholder="Nome da cliente" required></label>
+            <label>Telefone<input id="client-phone" type="tel" placeholder="(00) 00000-0000" required></label>
+            <label>E-mail <span class="optional">(opcional)</span><input id="client-email" type="email" placeholder="cliente@email.com"></label>
+            <div class="form-actions"><button class="button button-primary" type="submit">Cadastrar cliente</button><span id="client-message" class="message" role="status"></span></div>
+          </form>
+        </section>
+        <section class="panel">
+          <div class="panel-heading"><h2>Lista de clientes</h2><input id="client-search" type="search" placeholder="Buscar cliente"></div>
+          <div id="clients-list" class="client-list"></div>
+        </section>
+      </section>
+
+      <section class="page" id="page-cores">
+        <div class="section-heading"><div><p class="eyebrow">INSPIRAÇÃO</p><h2>Galeria de cores</h2></div></div>
+        <div class="color-grid" id="color-grid"></div>
+      </section>
+      <footer>Feito com carinho para o seu espaço ✿</footer>
+    </main>
+  </div>
+</body>
+</html>
